@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <p ng-bind="message"></p>
-  		
+  
   	<table class="table table-hover table-striped">
   		<tr>
   			<th>Project Coordinators</th>
@@ -11,19 +11,20 @@
   			<th>Closed On</th>
   			<th>Assigned To</th>
   		</tr>
-  		<tr ng-repeat="detail in projectInfo">
-  			<td ng-repeat="coordinator in detail.coordinators">
-  				<p>Name: {{coordinator.name}}, Role: {{coordinator.role}}</p>
+  		<tr ng-repeat="details in projectInfo">
+  			<td>
+  				<span ng-repeat="coordinator in details">
+  					Name: {{coordinator.name}}, Role: {{coordinator.role}}<br></span>
   			</td>
-  			<td ng-repeat="task in detail.tasks">
-  				<p>Task Title: {{task.title}}</p>
-  				<p>Description: {{task.info}}</p>
+  			<td>
+	  			<span ng-repeat="task in details">Task Title: {{task.title}}<br>
+	  				Description: {{task.info}}</span>
   			</td>
-  			<td ng-repeat="task in detail.tasks">{{task.status}}</td>
-  			<td ng-repeat="task in detail.tasks">{{task.createdOn}}</td>
-  			<td ng-repeat="task in detail.tasks">{{task.deuDate}}</td>
-  			<td ng-repeat="task in detail.tasks">{{task.closedOn}}</td>
-  			<td ng-repeat="task in detail.tasks">{{task.assignedTo}}</td>
+  			<td><span>{{task.status}}</span></td>
+  			<td><span>{{task.createdOn}}</span></td>
+  			<td><span>{{task.deuDate}}</span></td>
+  			<td><span>{{task.closedOn}}</span></td>
+  			<td><span>{{task.assignedTo}}</span></td>
   		</tr>
 	</table>
 </div>

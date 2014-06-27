@@ -50,8 +50,11 @@ angular.module('myApp.controllers', [])
                              }];
     
     for(var i=0; i < $scope.projectDetails.length; i++) {
-    	if($routeParams.projectId == $scope.projectDetails.id) {
-    		$scope.projectInfo = $scope.projectDetails;
+    	if($routeParams.projectId == $scope.projectDetails[i].projectId) {
+    		$scope.projectInfo = $scope.projectDetails[i];
+    		
+    		console.log($scope.projectInfo);
+    		
     	}
     }
     

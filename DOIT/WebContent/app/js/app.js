@@ -12,7 +12,16 @@ angular.module('myApp', [
 ]).
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
-  $routeProvider.when('/view1', {templateUrl: 'partials/view1.html', controller: 'MyCtrl1'});
+  $routeProvider.
+  when('/view1', {
+	  templateUrl: 'partials/view1.html',
+	  controller: 'ProjectListController'}).
+  when('/view1/:projectId', {
+	  templateUrl: 'partials/view2.html',
+	  controller: 'ProjectDetailsController'}).
+  otherwise({
+      redirectTo: '/view1'
+    });
 }]);
 
 angular.module('myApp').constant('appSettings', {

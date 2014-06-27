@@ -1,13 +1,29 @@
 <div class="jumbotron">
   <p ng-bind="message"></p>
   		
-    	<table class="table table-hover table-striped">
-    	<tr>
-    		<th></th>
-    	</tr>
+  	<table class="table table-hover table-striped">
   		<tr>
-  			<th>Coordinators</th>
-  			<th>Tasks</th>
+  			<th>Project Coordinators</th>
+  			<th>Task Info</th>
+  			<th>Status</th>
+  			<th>Created On</th>
+  			<th>Due Date</th>
+  			<th>Closed On</th>
+  			<th>Assigned To</th>
+  		</tr>
+  		<tr ng-repeat="detail in projectInfo">
+  			<td ng-repeat="coordinator in detail.coordinators">
+  				<p>Name: {{coordinator.name}}, Role: {{coordinator.role}}</p>
+  			</td>
+  			<td ng-repeat="task in detail.tasks">
+  				<p>Task Title: {{task.title}}</p>
+  				<p>Description: {{task.info}}</p>
+  			</td>
+  			<td ng-repeat="task in detail.tasks">{{task.status}}</td>
+  			<td ng-repeat="task in detail.tasks">{{task.createdOn}}</td>
+  			<td ng-repeat="task in detail.tasks">{{task.deuDate}}</td>
+  			<td ng-repeat="task in detail.tasks">{{task.closedOn}}</td>
+  			<td ng-repeat="task in detail.tasks">{{task.assignedTo}}</td>
   		</tr>
 	</table>
 </div>

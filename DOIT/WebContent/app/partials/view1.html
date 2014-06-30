@@ -8,6 +8,7 @@
         	</div>
         	<div class="modal-body">
 				<!-- -->
+				
 				<div ng-controller="DatepickerDemoCtrl">
     				<pre>Created On: <em>{{dt | date:'fullDate' }}</em></pre>
     				<button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
@@ -36,7 +37,8 @@
 				</div>
         	</div>
         	<div class="modal-footer">
-            	<button class="btn btn-primary" ng-click="ok()">Create</button>
+            	<button class="btn btn-primary" ng-click="ok()">Save</button>
+            	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
         	</div>
     	</script>
     	<button class="btn btn-default" ng-click="open('lg')">Create Project</button>
@@ -46,13 +48,13 @@
   		<tr>
   			<th>Project Name</th>
   			<th>Description</th>
-  			<th>Coordinators</th>
-  			<th>Select to view</th>
+  			<th>Collaborators</th>
+  			<th>View</th>
   		</tr>
   		<tr ng-repeat="project in projects">
   			<td>{{project.name}}</td>
   			<td>{{project.description}}</td>
-  			<td><span ng-repeat="name in project.coordinators">{{name}}, </span></td>
+  			<td><span ng-repeat="name in project.collaborators">{{name}}, </span></td>
   			<td><a href="/view1/{{project.projectId}}"><input type="radio"></a></td>
   		</tr>
 	</table>

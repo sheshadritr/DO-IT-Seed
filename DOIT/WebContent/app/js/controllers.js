@@ -39,6 +39,7 @@ angular.module('myApp.controllers', [])
                             	 "tasks": [{
                             	        	   "title": "Create basic scaffold",
                             	        	   "status": "pending",
+                            	        	   "priority": "showstopper",
                             	        	   "info": "Create a basic project structure for HU-Web",
                             	        	   "deuDate": "27-06-2014", "createdOn": "26-06-2014", "closedOn": "27-06-2014",
                             	        	   "assignedTo": "Chandan"
@@ -46,6 +47,7 @@ angular.module('myApp.controllers', [])
                             	           	{
                             	        	   "title": "Ensure responsive",
                             	        	   "status": "pending",
+                            	        	   "priority": "high",
                             	        	   "info": "Create css to ensure responsiveness of site",
                             	        	   "deuDate": "27-06-2014", "createdOn": "26-06-2014", "closedOn": "27-06-2014",
                             	        	   "assignedTo": "Ralf"
@@ -65,16 +67,18 @@ angular.module('myApp.controllers', [])
                             	 "tasks": [{
                             	        	   "title": "Create basic scaffold for assign-2",
                             	        	   "status": "pending",
+                            	        	   "priority": "high",
                             	        	   "info": "Create a basic project structure for HU-Web",
                             	        	   "deuDate": "27-06-2014", "createdOn": "26-06-2014", "closedOn": "27-06-2014",
-                            	        	   "assignedTo": "Chandan"
+                            	        	   "assignedTo": "Vinod"
                             	           	},
                             	           	{
                             	        	   "title": "Ensure responsive for assign-2",
                             	        	   "status": "pending",
+                            	        	   "priority": "low",
                             	        	   "info": "Create css to ensure responsiveness of site",
                             	        	   "deuDate": "27-06-2014", "createdOn": "26-06-2014", "closedOn": "27-06-2014",
-                            	        	   "assignedTo": "Ralf"
+                            	        	   "assignedTo": "Manish"
                             	           	}]
                              }];
     

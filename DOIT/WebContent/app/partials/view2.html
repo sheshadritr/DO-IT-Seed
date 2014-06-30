@@ -1,5 +1,13 @@
 <div class="jumbotron">
 	<p ng-bind="message"></p>
+	<div>
+		<div class="btn-group">
+        	<label class="btn btn-default" ng-click="priorityFilter = {priority: 'showstopper'}">Show Stopper</label>
+        	<label class="btn btn-primary" ng-click="priorityFilter = {priority: 'high'}">High</label>
+        	<label class="btn btn-primary" ng-click="priorityFilter = {priority: 'medium'}">Medium</label>
+        	<label class="btn btn-primary" ng-click="priorityFilter = {priority: 'low'}">Low</label>
+    	</div>
+	</div>
 	<div class="row">
 		<div class="col-md-3">
 			<h4>Project Collaborators</h4>
@@ -18,10 +26,10 @@
 			</span>
 		</div>
 		<div class="col-md-9">
-			<div  ng-repeat="task in projectInfo.tasks">
+			<div  ng-repeat="task in projectInfo.tasks | filter:priorityFilter">
 			<div class="col-md-6">
 					<span> Task Title: {{task.title}}<br> Description:
-						{{task.info}}<br>
+						{{task.info}}<br> Priority: {{task.priority}}<br>
 					</span>
 			</div>
 			<div class="col-md-3">

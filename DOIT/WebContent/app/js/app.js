@@ -25,24 +25,6 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
 }]);
 
 
-var ModalDemoCtrl = function ($scope, $modal, $log) {
-	$scope.open = function (size) {
-		var modalInstance = $modal.open({
-			templateUrl: 'myModalContent.html',
-			controller: 'ModalInstanceCtrl',
-			resolve: {
-				items: function () {
-	        }
-	      }
-	    });
-	    modalInstance.result.then(function (selectedItem) {
-	    }, function () {
-	    	$log.info('Modal dismissed at: ' + new Date());
-	    });
-	};
-};
-
-
 angular.module('myApp').constant('appSettings', {
   AppURI: 'http://127.0.0.1:9080/'
 });

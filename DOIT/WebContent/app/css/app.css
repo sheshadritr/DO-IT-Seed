@@ -28,3 +28,11 @@
   content: "";
   padding: 0;
 }
+
+.projectFields {
+	font-weight: bold;
+}
+
+.projectFieldsBorder {
+	border: 2px solid grey;
+}

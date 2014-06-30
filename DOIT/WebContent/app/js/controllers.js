@@ -100,23 +100,4 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
 	    $modalInstance.dismiss('cancel');
 	};
 };
-	
-var ButtonsCtrl = function ($scope) {
-	$scope.singleModel = 1;
-	$scope.radioModel = 'Middle';
-	$scope.checkModel = {
-			left: false,
-		    middle: true,
-		    right: false
-	};
-};
 
-function Test($scope) {
-	$scope.status = [{type:1, name: 'Caio'}, {type:2, name: 'Ary'}, {type:1, name: 'Camila'}, {type:3, name: 'Daniel'}];
-	$scope.myFunction = function() {
-		$scope.myFilter = function(val) {
-			return val.type != 2;
-		};
-		alert("done");
-	};
-};

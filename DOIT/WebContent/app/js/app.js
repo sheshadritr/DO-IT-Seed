@@ -51,3 +51,4 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
 angular.module('myApp').constant('appSettings', {
   AppURI: 'http://127.0.0.1:9080/'
 });
+

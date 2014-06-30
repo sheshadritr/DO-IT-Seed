@@ -3,105 +3,43 @@
 /* Controllers */
 
 angular.module('myApp.controllers', [])
-  .controller('ProjectListController', ['$scope', function($scope) {
-	  $scope.projects = [{
-	                    	 "projectId": 1,
-	                    	 "name": "angular js",
-	                    	 "description": "assignment 1",
-	                    	 "collaborators": [ "Chandan", "Ralf", "Anurag" ]
-	                      },
-	                      {
-	                    	 "projectId": 2,
-	                    	 "name": "java script",
-	                    	 "description": "assignment 2",
-		                     "collaborators": [ "Vinod", "Himanshu", "Manish" ]
-	                      },
-	                      {
-	                    	 "projectId": 3,
-	                    	 "name": "pixel perfect",
-	                    	 "description": "assignment 3",
-	                    	 "collaborators": [ "Sri", "Nagarjun", "Vinith" ]
-	                     }];
+  .controller('ProjectListController', ['$scope', 'jsonServices', function($scope, jsonServices) {
+	  $scope.projects = jsonServices.list();
   }])
-  .controller('ProjectDetailsController', ['$scope', '$routeParams',
-                                           function($scope, $routeParams) {
-    $scope.projectDetails = [{
-                            	 "projectId": 1,
-                              	"collaborators": [{
-                              						"name": "Ralf", "role": "Developer"
-                              					   },
-                              					   {
-                              						 "name": "Chandan", "role": "Developer"
-                              					   },
-                              					   {
-                              						  "name": "Anurag", "role": "Developer"
-                              					   }],
-                            	 "tasks": [{
-                            	        	   "title": "Create basic scaffold",
-                            	        	   "status": "pending",
-                            	        	   "priority": "showstopper",
-                            	        	   "info": "Create a basic project structure for HU-Web",
-                            	        	   "deuDate": "27-06-2014", "createdOn": "26-06-2014", "closedOn": "27-06-2014",
-                            	        	   "assignedTo": "Chandan"
-                            	           	},
-                            	           	{
-                            	        	   "title": "Ensure responsive",
-                            	        	   "status": "pending",
-                            	        	   "priority": "high",
-                            	        	   "info": "Create css to ensure responsiveness of site",
-                            	        	   "deuDate": "27-06-2014", "createdOn": "26-06-2014", "closedOn": "27-06-2014",
-                            	        	   "assignedTo": "Ralf"
-                            	           	}]
-                             },
-                             {
-                            	 "projectId": 2,
-                              	"collaborators": [{
-                              						"name": "Vinod", "role": "Developer"
-                              					   },
-                              					   {
-                              						 "name": "Himanshu", "role": "Developer"
-                              					   },
-                              					   {
-                                						 "name": "Manish", "role": "Developer"
-                                				   }],
-                            	 "tasks": [{
-                            	        	   "title": "Create basic scaffold for assign-2",
-                            	        	   "status": "pending",
-                            	        	   "priority": "high",
-                            	        	   "info": "Create a basic project structure for HU-Web",
-                            	        	   "deuDate": "27-06-2014", "createdOn": "26-06-2014", "closedOn": "27-06-2014",
-                            	        	   "assignedTo": "Vinod"
-                            	           	},
-                            	           	{
-                            	        	   "title": "Ensure responsive for assign-2",
-                            	        	   "status": "pending",
-                            	        	   "priority": "low",
-                            	        	   "info": "Create css to ensure responsiveness of site",
-                            	        	   "deuDate": "27-06-2014", "createdOn": "26-06-2014", "closedOn": "27-06-2014",
-                            	        	   "assignedTo": "Manish"
-                            	           	}]
-                             }];
+  
+  .controller('ProjectDetailsController', ['$scope', '$routeParams', 'jsonServices',
+                                           function($scope, $routeParams, jsonServices) {
+    $scope.projectDetails = jsonServices.list();
     
     for(var i=0; i < $scope.projectDetails.length; i++) {
     	if($routeParams.projectId == $scope.projectDetails[i].projectId) {
     		$scope.projectInfo = $scope.projectDetails[i];
-    		console.log($scope.projectInfo);
     	}
     }
-    
-  }]);
-
-
-var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
-	  $scope.items = items;
-	  $scope.selected = {
-	    item: $scope.items[0]
-	  };
-	  $scope.ok = function () {
-	    $modalInstance.close($scope.selected.item);
-	  };
-	  $scope.cancel = function () {
-	    $modalInstance.dismiss('cancel');
+  }])
+  
+  .controller('ModalInstanceController', ['$scope', '$modalInstance', 'jsonServices',
+                                          function($scope, $modalInstance, jsonServices) {
+	$scope.ok = function() {
+		var newProject ={
+				 Name:this.name,
+				 Description:this.Description,
+				 Coordinator:this.coordinator
+		 };
+		$Scope.Project.push(newProject);
+		$modalInstance.close($scope.selected.item);
 	};
+	$scope.cancel = function() {
+		$modalInstance.dismiss('cancel');
+	};
+}]);
+
+var SelectCollaboratorCtrl = function($scope) { 
+    for (var i = 0; i < $scope.projects.length; i++) {
+		for (var j = 0; j < $scope.projects.collaborators.length; j++) {
+            $scope.selectCollaborators[i+j] = $scope.projects[i].collaborators[j];
+    		console.log($scope.selectCollaborators[i+j]);
+		}
+    }
 };
 

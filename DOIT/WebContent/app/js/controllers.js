@@ -17,17 +17,21 @@ angular.module('myApp.controllers', [])
     	}
     }
   }])
-  
-  .controller('ModalInstanceController', ['$scope', '$modalInstance', 'jsonServices',
+
+  .controller('ModalInstanceCtrl', ['$scope', '$modalInstance', 'jsonServices',
                                           function($scope, $modalInstance, jsonServices) {
 	$scope.ok = function() {
 		var newProject ={
-				 Name:this.name,
-				 Description:this.Description,
-				 Coordinator:this.coordinator
-		 };
-		$Scope.Project.push(newProject);
-		$modalInstance.close($scope.selected.item);
+				 name: this.name,
+				 description: this.description,
+				 collaborators: {
+					 name: this.coordinator,
+					 role: 'Developer'
+				 }
+		};
+		 
+		jsonServices.save(newProject);
+		$modalInstance.close();
 	};
 	$scope.cancel = function() {
 		$modalInstance.dismiss('cancel');

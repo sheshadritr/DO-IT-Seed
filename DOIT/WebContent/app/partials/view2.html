@@ -1,6 +1,6 @@
 <div class="jumbotron">
-	<p><span class="projectFields">Project Id: </span>{{projectInfo.projectId}}</p>
-	<p><span class="projectFields">Project Name: </span>{{projectInfo.name}}</p>
+	<p><span style="font-weight: bold">Project Id: </span>{{projectInfo.projectId}}</p>
+	<p><span style="bold">Project Name: </span>{{projectInfo.name}}</p>
 	<div>
 		<div class="btn-group" style="margin: 10px">
         	<label class="btn btn-default" ng-click="priorityFilter = {priority: 'showstopper'}">Show Stopper</label>
@@ -12,7 +12,7 @@
     		<label class="btn btn-default" ng-click="priorityFilter = {}">Clear</label>
     	</div>
 	</div>
-	<div class="row projectFieldsBorder">
+	<div class="row" style="border: 2px solid grey">
 		<div class="col-md-3">
 			<h4>Project Collaborators</h4>
 		</div>
@@ -23,19 +23,19 @@
 			<h4>Tasks Details</h4>
 		</div>
 	</div>
-	<div class="row projectFieldsBorder">
+	<div class="row" style="border: 2px solid grey">
 		<div class="col-md-3">
 			<span ng-repeat="collaborator in projectInfo.collaborators">
-				<span class="projectFields">Name: </span>{{collaborator.name}}<br>
-				<span class="projectFields">Role: </span>{{collaborator.role}}<br><br>
+				<span style="font-weight: bold">Name: </span>{{collaborator.name}}<br>
+				<span style="font-weight: bold">Role: </span>{{collaborator.role}}<br><br>
 			</span>
 		</div>
 		<div class="col-md-9">
 			<div ng-repeat="task in projectInfo.tasks | filter:priorityFilter">
 			<div class="col-md-6">
-					<span><span class="projectFields">Task Title: </span>{{task.title}}<br>
-						<span class="projectFields">Description: </span>{{task.info}}<br>
-						<span class="projectFields">Priority: </span>{{task.priority}}<br>
+					<span><span style="font-weight: bold">Task Title: </span>{{task.title}}<br>
+						<span style="font-weight: bold">Description: </span>{{task.info}}<br>
+						<span style="font-weight: bold">Priority: </span>{{task.priority}}<br>
 					</span>
 			</div>
 			<div class="col-md-3">
@@ -45,11 +45,11 @@
 							<a href="#" class="active">Edit</a>
 							<a href="#" class="active">Complete</a>
 						</span>
-						<span class="projectFields">Assigned To: </span>{{task.assignedTo}}<br>
-						<span class="projectFields">Status: </span>{{task.status}}<br>
-						<span class="projectFields">Created On: </span>{{task.createdOn}}<br>
-						<span class="projectFields">Due Date: </span>{{task.deuDate}}<br>
-						<span class="projectFields">Closed On: </span>{{task.closedOn}}<br></span>
+						<span style="font-weight: bold">Assigned To: </span>{{task.assignedTo}}<br>
+						<span style="font-weight: bold">Status: </span>{{task.status}}<br>
+						<span style="font-weight: bold">Created On: </span>{{task.createdOn}}<br>
+						<span style="font-weight: bold">Due Date: </span>{{task.deuDate}}<br>
+						<span style="font-weight: bold">Closed On: </span>{{task.closedOn}}<br></span>
 			</div>
 			</div>
 		</div>
